@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
       callback(null, file.originalname)
   }
 });
-printed = "Hello"
+const printed = "Hello"
 const upload = multer({ storage: storage })
 
 app.get('/getImage', function (req, res) {
@@ -23,8 +23,9 @@ app.get('/', function(req, res) {
 app.get('/getUploads', function(req, res) {
     res.send(upload.files)
 })
-app.post('/printSomething', function(req, res) {
+app.get('/printSomething', function(req, res) {
     printed = req.body
+    console.log(printed)
 })
 app.post('/upload', upload.single('uploadedFile'), (req, res) => {
     if (req.file) {
