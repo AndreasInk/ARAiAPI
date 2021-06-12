@@ -15,8 +15,27 @@ const storage = multer.diskStorage({
 });
 var printed = "This can be accessed anywhere!";
 var ids = [];
+var queue = [];
 const upload = multer({ storage: storage })
 
+app.get('/checkQueue', function (req, res) {
+    
+    res.send({"queue": queue});
+});
+app.get('/joinQueue', function (req, res) {
+    queue.push(req.query.id)
+    res.send({"queue": queue});
+});
+app.get('/leaveQueue', function (req, res) {
+    queue.shift()
+    ids = []
+    printed = ""
+    async function start() {
+    unlinkAsync(__dirname + "/uploads/")
+    }
+    start()
+    res.send({"complete": true});
+});
 app.get('/getIDs', function (req, res) {
     
     res.send({"ids": ids});
