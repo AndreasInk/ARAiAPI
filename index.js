@@ -25,7 +25,7 @@ app.get('/getUploads', function(req, res) {
 })
 app.get('/printNow', function(req, res) {
     printed = req['print']
-    res.send("hello")
+    res.send(printed)
     return 'hello'
 })
 app.get('/getLogs', function(req, res) {
