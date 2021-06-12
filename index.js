@@ -23,10 +23,13 @@ app.get('/getIDs', function (req, res) {
 });
 
 app.get('/getImage', function (req, res) {
-    
+    async function start() {
     res.sendFile(__dirname + "/uploads/" + req.query.id);
     unlinkAsync(__dirname + "/uploads/" + req.query.id)
     ids.shift();
+    }
+    start()
+
 });
 app.get('/', function(req, res) {
     res.send("Cool! The server is running!")
@@ -44,19 +47,17 @@ app.get('/getLogs', function(req, res) {
     return 'hello'
 })
 app.post('/upload', upload.single('uploadedFile'), (req, res) => {
-    async function start() {
+    
         if (req.file) {
             console.log(req.file)
             console.log(req.body)
             ids.push(req.file.originalname)
-            ids.shift()
-            await unlinkAsync(req.file.path)
             return res.send({ id: "", "savedImg": "", "process": printed })
     } else {
             return res.send({ id: "", "savedImg": "", "process": printed })
     }
 }
-start()
+
 })
 
 
