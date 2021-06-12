@@ -26,7 +26,7 @@ app.get('/getImage', function (req, res) {
     async function start() {
     res.sendFile(__dirname + "/uploads/" + req.query.id);
     unlinkAsync(__dirname + "/uploads/" + req.query.id)
-    ids.shift();
+    ids.shift()
     }
     start()
 
@@ -56,7 +56,6 @@ app.post('/upload', upload.single('uploadedFile'), (req, res) => {
     } else {
             return res.send({ id: "", "savedImg": "", "process": printed })
     }
-}
 
 })
 
