@@ -29,7 +29,6 @@ app.get('/printNow', function(req, res) {
     return 'hello'
 })
 app.get('/getLogs', function(req, res) {
-    printed = req.body
     res.send({ id: "", "savedImg": "", "process": printed })
     return 'hello'
 })
