@@ -24,7 +24,7 @@ app.get('/getUploads', function(req, res) {
     res.send(upload.files)
 })
 app.get('/printNow', function(req, res) {
-    
+    res.send("hello")
     return 'hello'
 })
 app.post('/upload', upload.single('uploadedFile'), (req, res) => {
