@@ -17,7 +17,7 @@ var printed = "This can be accessed anywhere!";
 var ids = [];
 var queue = [];
 const upload = multer({ storage: storage })
-var complete = false
+var complete = false;
 app.get('/checkIDFinishedUploading', function (req, res) {
  
          res.send({"complete": complete});
