@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
   }
 });
 var printed = "This can be accessed anywhere!";
-var ids = [""];
+var ids = [];
 const upload = multer({ storage: storage })
 
 app.get('/getIDs', function (req, res) {
