@@ -23,8 +23,8 @@ app.get('/', function(req, res) {
 app.get('/getUploads', function(req, res) {
     res.send(upload.files)
 })
-app.post('/printSomething', function(req, res) {
-    printed = req
+app.get('/printSomething', function(req, res) {
+    printed = 'req'
     console.log(printed)
     return printed
 })
