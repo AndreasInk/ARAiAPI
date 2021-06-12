@@ -21,7 +21,7 @@ app.get('/getIDs', function (req, res) {
 
 app.get('/getImage', function (req, res) {
     
-    res.sendFile(__dirname + "/uploads/" + req.query.id + ".jpg");
+    res.sendFile(__dirname + "/uploads/" + req.query.id);
 });
 app.get('/', function(req, res) {
     res.send("Cool! The server is running!")
