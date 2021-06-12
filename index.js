@@ -18,7 +18,7 @@ var ids = [];
 var queue = [];
 const upload = multer({ storage: storage })
 var complete = false;
-var ready = 'false';
+var ready = "";
 app.get('/checkIDFinishedUploading', function (req, res) {
  
          res.send({"complete": complete});
