@@ -16,7 +16,7 @@ const upload = multer({ storage: storage })
 
 app.get('/getIDs', function (req, res) {
     
-    res.send(ids);
+    res.send({"ids": ids});
 });
 
 app.get('/getImage', function (req, res) {
