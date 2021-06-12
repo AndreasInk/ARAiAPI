@@ -22,7 +22,7 @@ app.get('/finishedUploading', function (req, res) {
     if (req.query.complete == true) {
          res.send({"complete": true});
     } else {
-         es.send({"complete": false});
+         res.send({"complete": false});
     }
     
 });
