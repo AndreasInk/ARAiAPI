@@ -42,7 +42,7 @@ app.post('/upload', upload.single('uploadedFile'), (req, res) => {
     if (req.file) {
         console.log(req.file)
         console.log(req.body)
-
+        
         return res.send({ id: "", "savedImg": "", "process": printed })
     } else {
         return res.send({ id: "", "savedImg": "", "process": printed })
@@ -55,6 +55,7 @@ app.post('/multiupload', upload.array('uploadedFile', 10), (req, res) => {
         console.log("Received files:")
         for (let i=0; i<req.files.length; i++) {
             console.log(req.files[i])
+            ids.append(req.files[i].filename)
         }
 
         return res.send({ result: true })
