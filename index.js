@@ -66,6 +66,18 @@ app.get('/getImage', function (req, res) {
     
 
 });
+
+app.get('/getUSDZ', function (req, res) {
+    start()
+    async function start() {
+    //unlinkAsync(__dirname + "/uploads/" + req.query.id)
+    ids.shift()
+    res.sendFile(__dirname + "/uploads/result.usdz");
+    
+    }
+    
+
+});
 app.get('/', function(req, res) {
     res.send("Cool! The server is running!")
 })
