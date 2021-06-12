@@ -13,7 +13,7 @@ const storage = multer.diskStorage({
       callback(null, file.originalname)
   }
 });
-var printed = "This can be accessed anywhere!";
+var printed = "...";
 var ids = [];
 var queue = [];
 const upload = multer({ storage: storage })
