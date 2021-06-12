@@ -17,12 +17,13 @@ var printed = "This can be accessed anywhere!";
 var ids = [];
 var queue = [];
 const upload = multer({ storage: storage })
-
+var complete = false
 app.get('/finishedUploading', function (req, res) {
     if (req.query.complete == true) {
-         res.send({"complete": true});
+        complete = true
+         res.send({"complete": complete});
     } else {
-         res.send({"complete": false});
+         res.send({"complete": complete});
     }
     
 });
@@ -39,6 +40,7 @@ app.get('/leaveQueue', function (req, res) {
     queue.shift()
     ids = []
     printed = ""
+    complete = false
     async function start() {
     unlinkAsync(__dirname + "/uploads/")
     }
