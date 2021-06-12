@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
       callback(null, file.originalname)
   }
 });
-var printed;
+global.printed = "This can be accessed anywhere!";
 const upload = multer({ storage: storage })
 
 app.get('/getImage', function (req, res) {
