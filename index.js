@@ -18,6 +18,7 @@ var ids = [];
 var queue = [];
 const upload = multer({ storage: storage })
 var complete = false;
+var ready = false;
 app.get('/checkIDFinishedUploading', function (req, res) {
  
          res.send({"complete": complete});
@@ -78,6 +79,9 @@ app.get('/getUSDZ', function (req, res) {
     
 
 });
+app.get('/isReady', function(req, res) {
+    res.send({"ready" : ready})
+})
 app.get('/', function(req, res) {
     res.send("Cool! The server is running!")
 })
@@ -114,7 +118,7 @@ app.post('/multiupload', upload.array('uploadedFile', 10), (req, res) => {
             console.log(req.files[i])
             ids.push(req.files[i].originalname)
         }
-
+        ready = true
         return res.send({ result: true })
     } else {
         return res.send({ result: false })
