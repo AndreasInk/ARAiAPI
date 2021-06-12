@@ -23,12 +23,13 @@ app.get('/getIDs', function (req, res) {
 });
 
 app.get('/getImage', function (req, res) {
+    start()
     async function start() {
     res.sendFile(__dirname + "/uploads/" + req.query.id);
     unlinkAsync(__dirname + "/uploads/" + req.query.id)
     ids.shift()
     }
-    start()
+    
 
 });
 app.get('/', function(req, res) {
