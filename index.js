@@ -23,7 +23,7 @@ app.get('/checkQueue', function (req, res) {
     res.send({"queue": queue});
 });
 app.get('/joinQueue', function (req, res) {
-    queue.push(req.query.id)
+    queue.push(req.query.userID)
     res.send({"queue": queue});
 });
 app.get('/leaveQueue', function (req, res) {
