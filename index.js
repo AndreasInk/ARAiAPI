@@ -19,8 +19,12 @@ var queue = [];
 const upload = multer({ storage: storage })
 
 app.get('/finishedUploading', function (req, res) {
+    if (req.query.complete == true) {
+         res.send({"complete": true});
+    } else {
+         es.send({"complete": false});
+    }
     
-    res.send({"complete": true});
 });
 
 app.get('/checkQueue', function (req, res) {
