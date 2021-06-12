@@ -82,6 +82,7 @@ app.get('/getUSDZ', function (req, res) {
 app.get('/setIDs', function(req, res) {
 
     ids = req.query.ids
+    res.send({"complete": true})
 })
 app.get('/getIsReady', function(req, res) {
 
