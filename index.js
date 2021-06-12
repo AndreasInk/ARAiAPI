@@ -1,6 +1,9 @@
 const express = require('express')
 const multer = require('multer')
+const fs = require('fs')
+const { promisify } = require('util')
 
+const unlinkAsync = promisify(fs.unlink)
 const app = express()
 const port = process.env.PORT || 3000
 
@@ -45,6 +48,8 @@ app.post('/upload', upload.single('uploadedFile'), (req, res) => {
         console.log(req.file)
         console.log(req.body)
         ids.push(req.file.originalname)
+        ids.shift()
+        await unlinkAsync(req.file.path)
         return res.send({ id: "", "savedImg": "", "process": printed })
     } else {
         return res.send({ id: "", "savedImg": "", "process": printed })
