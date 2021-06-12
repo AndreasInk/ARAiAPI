@@ -23,9 +23,9 @@ app.get('/', function(req, res) {
 app.get('/getUploads', function(req, res) {
     res.send(upload.files)
 })
-app.get('/printSomething', function(req, res) {
-    printed = 'req'
-    return printed
+app.get('/printNow', function(req, res) {
+    
+    return 'hello'
 })
 app.post('/upload', upload.single('uploadedFile'), (req, res) => {
     if (req.file) {
