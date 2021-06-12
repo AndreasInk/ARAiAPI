@@ -24,7 +24,7 @@ app.get('/getUploads', function(req, res) {
     res.send(upload.files)
 })
 app.get('/printNow', function(req, res) {
-    printed = req.read['print']
+    printed = req.query.print
     res.send(printed)
     return 'hello'
 })
