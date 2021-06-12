@@ -15,7 +15,7 @@ const upload = multer({ storage: storage })
 
 app.get('/getImage', function (req, res) {
     
-    res.sendFile(__dirname + "uploads/sampleImage.jpg");
+    res.sendFile(__dirname + "/uploads/sampleImage.jpg");
 });
 app.get('/', function(req, res) {
     res.send("Cool! The server is running!")
