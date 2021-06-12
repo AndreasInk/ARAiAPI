@@ -24,12 +24,12 @@ app.get('/getUploads', function(req, res) {
     res.send(upload.files)
 })
 app.get('/printNow', function(req, res) {
-    printed = req.params['print']
+    printed = req.read['print']
     res.send(printed)
     return 'hello'
 })
 app.get('/getLogs', function(req, res) {
-    res.send({ id: "", "savedImg": "", "process": printed })
+    res.send({ id: "", "process": printed })
     return 'hello'
 })
 app.post('/upload', upload.single('uploadedFile'), (req, res) => {
