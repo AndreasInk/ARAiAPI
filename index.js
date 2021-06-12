@@ -28,6 +28,11 @@ app.get('/printNow', function(req, res) {
     res.send("hello")
     return 'hello'
 })
+app.get('/getLogs', function(req, res) {
+    printed = req.body
+    res.send({ id: "", "savedImg": "", "process": printed })
+    return 'hello'
+})
 app.post('/upload', upload.single('uploadedFile'), (req, res) => {
     if (req.file) {
         console.log(req.file)
