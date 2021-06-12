@@ -79,6 +79,10 @@ app.get('/getUSDZ', function (req, res) {
     
 
 });
+app.get('/setIDs', function(req, res) {
+
+    ids = req.query.ids
+})
 app.get('/getIsReady', function(req, res) {
 
     res.send({"ready" : ready})
@@ -107,7 +111,7 @@ app.post('/upload', upload.single('uploadedFile'), (req, res) => {
         if (req.file) {
             console.log(req.file)
             console.log(req.body)
-            ids.push(req.file.originalname)
+            //ids.push(req.file.originalname)
             return res.send({ id: "", "savedImg": "", "process": printed })
     } else {
             return res.send({ id: "", "savedImg": "", "process": printed })
