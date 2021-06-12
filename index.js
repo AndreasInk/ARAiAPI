@@ -25,12 +25,10 @@ app.get('/checkIDFinishedUploading', function (req, res) {
     
 });
 app.get('/finishedUploading', function (req, res) {
-    if (req.query.complete == true) {
+    
         complete = true
          res.send({"complete": complete});
-    } else {
-         res.send({"complete": complete});
-    }
+    
     
 });
 app.get('/checkQueue', function (req, res) {
