@@ -10,7 +10,7 @@ const storage = multer.diskStorage({
       callback(null, file.originalname)
   }
 });
-const printed = "Hello"
+var printed = "Hello"
 const upload = multer({ storage: storage })
 
 app.get('/getImage', function (req, res) {
