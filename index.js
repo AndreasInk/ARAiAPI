@@ -18,6 +18,11 @@ var ids = [];
 var queue = [];
 const upload = multer({ storage: storage })
 
+app.get('/finishedUploading', function (req, res) {
+    
+    res.send({"complete": true});
+});
+
 app.get('/checkQueue', function (req, res) {
     
     res.send({"queue": queue});
