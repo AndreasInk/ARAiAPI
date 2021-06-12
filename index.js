@@ -71,7 +71,7 @@ app.get('/getUSDZ', function (req, res) {
     start()
     async function start() {
     //unlinkAsync(__dirname + "/uploads/" + req.query.id)
-    ids.shift()
+    //ids.shift()
     res.sendFile(__dirname + "/uploads/result.usdz");
     
     }
@@ -82,7 +82,7 @@ app.get('/', function(req, res) {
     res.send("Cool! The server is running!")
 })
 app.get('/getUploads', function(req, res) {
-    res.send(upload.files)
+    res.sendFile(__dirname + "/uploads/");
 })
 app.get('/printNow', function(req, res) {
     printed = req.query.print
