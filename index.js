@@ -13,7 +13,10 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
-
+app.get('/getImage', function (req, res) {
+    const filePath = "/uploads/sampleImage.jpg"
+    res.sendFile(filepath);
+});
 app.get('/', function(req, res) {
     res.send("Cool! The server is running!")
 })
