@@ -114,6 +114,7 @@ app.post('/upload', upload.single('uploadedFile'), (req, res) => {
             console.log(req.body)
             //ids.push(req.file.originalname)
             return res.send({ id: "", "savedImg": "", "process": printed })
+            ready = true
     } else {
             return res.send({ id: "", "savedImg": "", "process": printed })
     }
