@@ -18,6 +18,12 @@ var ids = [];
 var queue = [];
 const upload = multer({ storage: storage })
 var complete = false
+app.get('/checkIDFinishedUploading', function (req, res) {
+ 
+         res.send({"complete": complete});
+    
+    
+});
 app.get('/finishedUploading', function (req, res) {
     if (req.query.complete == true) {
         complete = true
@@ -27,7 +33,6 @@ app.get('/finishedUploading', function (req, res) {
     }
     
 });
-
 app.get('/checkQueue', function (req, res) {
     
     res.send({"queue": queue});
