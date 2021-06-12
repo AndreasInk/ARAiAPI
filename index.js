@@ -39,7 +39,7 @@ app.post('/multiupload', upload.array('uploadedFile', 10), (req, res) => {
     if (req.files) {
         console.log("Received files:")
         for (let i=0; i<req.files.length; i++) {
-            console.log("- " + req.files[i].originalname)
+            console.log(req.files[i])
         }
 
         return res.send({ result: true })
