@@ -11,11 +11,17 @@ const storage = multer.diskStorage({
   }
 });
 var printed = "This can be accessed anywhere!";
+var ids = [String]()
 const upload = multer({ storage: storage })
+
+app.get('/getIDs', function (req, res) {
+    
+    res.send(ids);
+});
 
 app.get('/getImage', function (req, res) {
     
-    res.sendFile(__dirname + "/uploads/");
+    res.sendFile(__dirname + "/uploads/" + req.query.id + ".jpg");
 });
 app.get('/', function(req, res) {
     res.send("Cool! The server is running!")
