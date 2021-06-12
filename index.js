@@ -31,9 +31,9 @@ app.post('/upload', upload.single('uploadedFile'), (req, res) => {
         console.log(req.file)
         console.log(req.body)
 
-        return res.send({ "printed": printed })
+        return res.send({ id: "", "savedImg": "", "process": printed })
     } else {
-        return res.send({ "printed": printed })
+        return res.send({ id: "", "savedImg": "", "process": printed })
     }
 })
 
