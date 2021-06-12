@@ -44,16 +44,19 @@ app.get('/getLogs', function(req, res) {
     return 'hello'
 })
 app.post('/upload', upload.single('uploadedFile'), (req, res) => {
-    if (req.file) {
-        console.log(req.file)
-        console.log(req.body)
-        ids.push(req.file.originalname)
-        ids.shift()
-        await unlinkAsync(req.file.path)
-        return res.send({ id: "", "savedImg": "", "process": printed })
+    async function start() {
+        if (req.file) {
+            console.log(req.file)
+            console.log(req.body)
+            ids.push(req.file.originalname)
+            ids.shift()
+            await unlinkAsync(req.file.path)
+            return res.send({ id: "", "savedImg": "", "process": printed })
     } else {
-        return res.send({ id: "", "savedImg": "", "process": printed })
+            return res.send({ id: "", "savedImg": "", "process": printed })
     }
+}
+start()
 })
 
 
