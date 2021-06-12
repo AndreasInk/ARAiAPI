@@ -82,7 +82,7 @@ app.get('/', function(req, res) {
     res.send("Cool! The server is running!")
 })
 app.get('/getUploads', function(req, res) {
-    res.sendFile(__dirname + "/uploads/");
+    res.sendFile(__dirname + "/uploads");
 })
 app.get('/printNow', function(req, res) {
     printed = req.query.print
