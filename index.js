@@ -17,7 +17,7 @@ const upload = multer({ storage: storage })
 app.get('/', function(req, res) {
     res.send("Cool! The server is running!")
 })
-app.get('/uploads', function(req, res) {
+app.get('/getUploads', function(req, res) {
     res.send(upload.files)
 })
 app.post('/upload', upload.single('uploadedFile'), (req, res) => {
