@@ -61,7 +61,7 @@ app.get('/getImage', function (req, res) {
     async function start() {
     //unlinkAsync(__dirname + "/uploads/" + req.query.id)
     ids.shift()
-    res.sendFile(__dirname + "/uploads/results.zip');
+    res.sendFile(__dirname + "/uploads/results.zip");
     
     }
     
