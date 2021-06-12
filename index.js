@@ -25,8 +25,8 @@ app.get('/getIDs', function (req, res) {
 app.get('/getImage', function (req, res) {
     async function start() {
     res.sendFile(__dirname + "/uploads/" + req.query.id);
-    //unlinkAsync(__dirname + "/uploads/" + req.query.id)
-    //ids.shift()
+    unlinkAsync(__dirname + "/uploads/" + req.query.id)
+    ids.shift()
     }
     start()
 
