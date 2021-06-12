@@ -14,7 +14,7 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage })
 
 app.get('/getImage', function (req, res) {
-    const filePath = "/uploads/sampleImage.jpg"
+    const filePath = "/uploads/uploadedFile.jpg"
     res.sendFile(filepath);
 });
 app.get('/', function(req, res) {
