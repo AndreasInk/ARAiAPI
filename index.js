@@ -79,7 +79,12 @@ app.get('/getUSDZ', function (req, res) {
     
 
 });
+app.get('/getIsReady', function(req, res) {
+
+    res.send({"ready" : ready})
+})
 app.get('/isReady', function(req, res) {
+    ready = true
     res.send({"ready" : ready})
 })
 app.get('/', function(req, res) {
