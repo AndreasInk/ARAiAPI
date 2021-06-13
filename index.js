@@ -66,7 +66,7 @@ app.get('/getUSDZ', function (req, res) {
     async function start() {
     //unlinkAsync(__dirname + "/uploads/" + req.query.id)
     //ids.shift()
-    res.sendFile(__dirname + "/uploads/result.usdz");
+    res.sendFile(__dirname + "/uploads/result.reality");
     queue.shift()
     ids = []
     printed = ""
