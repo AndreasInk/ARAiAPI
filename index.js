@@ -19,6 +19,19 @@ var queue = [];
 const upload = multer({ storage: storage })
 var complete = false;
 var ready = "";
+var modelID = ""
+app.get('/sendModelID', function (req, res) {
+ modelID = req.query.modelID
+    res.send({"modelID": req.query.modelID});
+
+
+});
+app.get('/getModelID', function (req, res) {
+ 
+    res.send({"modelID": modelID});
+
+
+});
 app.get('/checkIDFinishedUploading', function (req, res) {
  
          res.send({"complete": complete});
