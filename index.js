@@ -5,7 +5,7 @@ const { promisify } = require('util')
 
 const unlinkAsync = promisify(fs.unlink)
 const app = express()
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 3001
 
 const storage = multer.diskStorage({
   destination: 'uploads/',
@@ -62,17 +62,18 @@ app.get('/getImage', function (req, res) {
 });
 
 app.get('/getUSDZ', function (req, res) {
-    start()
-    async function start() {
+    res.sendFile(__dirname + "/uploads/result.usdz");
+    // start()
+    // async function start() {
     //unlinkAsync(__dirname + "/uploads/" + req.query.id)
     //ids.shift()
-    res.sendFile(__dirname + "/uploads/result.reality");
-    queue.shift()
-    ids = []
-    printed = ""
-    complete = false
-    unlinkAsync(__dirname + "/uploads/")
-    }
+    
+    // queue.shift()
+    // ids = []
+    // printed = ""
+    // complete = false
+    // unlinkAsync(__dirname + "/uploads/")
+    //}
     
 
 
