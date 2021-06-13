@@ -41,14 +41,7 @@ app.get('/joinQueue', function (req, res) {
     res.send({"queue": queue});
 });
 app.get('/leaveQueue', function (req, res) {
-    queue.shift()
-    ids = []
-    printed = ""
-    complete = false
-    async function start() {
-    unlinkAsync(__dirname + "/uploads/")
-    }
-    start()
+   
     res.send({"complete": true});
 });
 app.get('/getIDs', function (req, res) {
@@ -74,9 +67,14 @@ app.get('/getUSDZ', function (req, res) {
     //unlinkAsync(__dirname + "/uploads/" + req.query.id)
     //ids.shift()
     res.sendFile(__dirname + "/uploads/result.usdz");
-    
+    queue.shift()
+    ids = []
+    printed = ""
+    complete = false
+    unlinkAsync(__dirname + "/uploads/")
     }
     
+
 
 });
 app.get('/setIDs', function(req, res) {
