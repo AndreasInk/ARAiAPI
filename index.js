@@ -57,7 +57,7 @@ app.get('/joinQueue', function (req, res) {
 app.get('/leaveQueue', function (req, res) {
     printed = "..."
     queue.shift()
-    fs.unlink(path, (err) => {
+    fs.unlink(__dirname + "/uploads/", (err) => {
         if (err) {
           console.error(err)
           return
