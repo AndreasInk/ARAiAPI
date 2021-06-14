@@ -69,13 +69,14 @@ app.get('/getImage', function (req, res) {
     //unlinkAsync(__dirname + "/uploads/" + req.query.id)
     
     res.sendFile(__dirname + "/uploads/" + req.query.id);
-    
+    unlinkAsync(__dirname + "/uploads/" + req.query.id)
     }
     
 
 });
 
 app.get('/getUSDZ', function (req, res) {
+    
     res.sendFile(__dirname + "/uploads/model.zip");
     // start()
     // async function start() {
@@ -131,6 +132,19 @@ app.post('/upload', upload.single('uploadedFile'), (req, res) => {
     } else {
             return res.send({ id: "", "savedImg": "", "process": printed })
     }
+
+})
+app.post('/uploadUSDZ', upload.single('uploadedFile'), (req, res) => {
+   
+    if (req.file) {
+        console.log(req.file)
+        console.log(req.body)
+        //ids.push(req.file.originalname)
+        return res.send({ id: "", "savedImg": "", "process": printed })
+        ready = true
+} else {
+        return res.send({ id: "", "savedImg": "", "process": printed })
+}
 
 })
 
