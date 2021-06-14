@@ -62,9 +62,11 @@ app.get('/getIDs', function (req, res) {
     
     res.send({"ids": ids});
 });
-
+async function send(res) {
+    res.sendFile(__dirname + "/uploads/model.usdz");
+}
 app.get('/getImage', async function (req, res) {
-    res.sendFile(__dirname + "/uploads/" + req.query.id);
+   send(res)
     await unlinkAsync(__dirname + "/uploads/" + req.query.id)
     
 
@@ -72,7 +74,7 @@ app.get('/getImage', async function (req, res) {
 
 app.get('/getUSDZ', function (req, res) {
     
-    res.sendFile(__dirname + "/uploads/model.usdz");
+    
     // start()
     // async function start() {
     
