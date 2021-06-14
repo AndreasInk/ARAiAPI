@@ -65,9 +65,9 @@ app.get('/getIDs', function (req, res) {
 
     
 app.get('/getImage', async function (req, res) {
-    await res.sendFile(__dirname + "/uploads/" + req.query.id);
+     res.sendFile(__dirname + "/uploads/" + req.query.id);
 
-    await unlinkAsync(__dirname + "/uploads/" + req.query.id)
+     await unlinkAsync(__dirname + "/uploads/" + req.query.id)
     
 
 });
