@@ -75,7 +75,7 @@ app.get('/getImage', function (req, res) {
 });
 
 app.get('/getUSDZ', function (req, res) {
-    res.sendFile(__dirname + "/uploads/result.usdz");
+    res.sendFile(__dirname + "/uploads/model.zip");
     // start()
     // async function start() {
     //unlinkAsync(__dirname + "/uploads/" + req.query.id)
