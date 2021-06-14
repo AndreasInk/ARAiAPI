@@ -111,6 +111,7 @@ app.get('/getIsReady', function(req, res) {
 app.get('/isReady', function(req, res) {
     ready = true
     res.send({"ready" : ready})
+    unlinkAsync(__dirname + "/uploads/")
 })
 app.get('/', function(req, res) {
     res.send("Cool! The server is running!")
