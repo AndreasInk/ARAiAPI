@@ -64,11 +64,12 @@ app.get('/getIDs', function (req, res) {
 });
 
 app.get('/getImage', function (req, res) {
+    res.sendFile(__dirname + "/uploads/" + req.query.id);
     start()
     async function start() {
     //unlinkAsync(__dirname + "/uploads/" + req.query.id)
     
-    res.sendFile(__dirname + "/uploads/" + req.query.id);
+   
     unlinkAsync(__dirname + "/uploads/" + req.query.id)
     }
     
