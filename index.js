@@ -77,7 +77,7 @@ app.get('/getUSDZ', function (req, res) {
     res.sendFile(__dirname + "/uploads/model.usdz");
     // start()
     // async function start() {
-    //unlinkAsync(__dirname + "/uploads/" + req.query.id)
+    
     //ids.shift()
     
     // queue.shift()
@@ -88,7 +88,7 @@ app.get('/getUSDZ', function (req, res) {
     //}
     
 
-
+    unlinkAsync(__dirname + "/uploads/model.usdz")
 });
 app.get('/setIDs', function(req, res) {
 
