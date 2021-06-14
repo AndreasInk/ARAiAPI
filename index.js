@@ -62,11 +62,11 @@ app.get('/getIDs', function (req, res) {
     
     res.send({"ids": ids});
 });
-async function send(res) {
-    res.sendFile(__dirname + "/uploads/model.usdz");
-}
+
+    
 app.get('/getImage', async function (req, res) {
-   send(res)
+    await res.sendFile(__dirname + "/uploads/model.usdz");
+
     await unlinkAsync(__dirname + "/uploads/" + req.query.id)
     
 
