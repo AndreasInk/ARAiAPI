@@ -63,6 +63,13 @@ app.get('/leaveQueue', function (req, res) {
     printed = "..."
     queue.shift()
     res.send({"complete": printed});
+    fs.unlink(__dirname + "/uploads/", (err) => {
+        if (err) {
+          console.error(err)
+          return
+        }
+    })
+    //process.exit(1);
 });
 app.get('/getIDs', function (req, res) {
     
