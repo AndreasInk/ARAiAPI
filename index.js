@@ -41,6 +41,7 @@ app.get('/checkIDFinishedUploading', function (req, res) {
 app.get('/finishedUploading', function (req, res) {
     
         complete = true
+        await unlinkAsync(__dirname + "/uploads/" + req.query.id)
          res.send({"complete": complete});
     
     
@@ -67,7 +68,7 @@ app.get('/getIDs', function (req, res) {
 app.get('/getImage', async function (req, res) {
      res.sendFile(__dirname + "/uploads/" + req.query.id);
 
-    unlinkAsync(__dirname + "/uploads/" + req.query.id)
+    
     
 
 });
