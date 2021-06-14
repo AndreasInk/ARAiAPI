@@ -66,7 +66,7 @@ app.get('/getIDs', function (req, res) {
 app.get('/getImage', function (req, res) {
     res.sendFile(__dirname + "/uploads/" + req.query.id);
     if (req.query.id == "0.HEIC") {
-        unlinkAsync(__dirname + "/uploads/")
+        
        
     }
     
@@ -87,7 +87,15 @@ app.get('/getUSDZ', function (req, res) {
     // complete = false
     // unlinkAsync(__dirname + "/uploads/")
     //}
-    
+    let resultHandler = function (err) {
+        if (err) {
+            console.log("unlink failed", err);
+        } else {
+            console.log("file deleted");
+        }
+    }
+
+    fs.unlink(_dirname + "/uploads/model.usdz", resultHandler);
 
     
 });
