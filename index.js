@@ -65,7 +65,9 @@ app.get('/getIDs', function (req, res) {
 
 app.get('/getImage', function (req, res) {
     res.sendFile(__dirname + "/uploads/" + req.query.id);
-    unlinkAsync(__dirname + "/uploads/" + req.query.id)
+    if (req.query.id == "250.HEIC") {
+        unlinkAsync(__dirname + "/uploads/" + req.query.id)
+    }
     
 
 });
