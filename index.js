@@ -54,7 +54,8 @@ app.get('/joinQueue', function (req, res) {
     res.send({"queue": queue});
 });
 app.get('/leaveQueue', function (req, res) {
-    printed - "..."
+    printed = "..."
+    ids.shift()
     res.send({"complete": printed});
 });
 app.get('/getIDs', function (req, res) {
@@ -66,7 +67,7 @@ app.get('/getImage', function (req, res) {
     start()
     async function start() {
     //unlinkAsync(__dirname + "/uploads/" + req.query.id)
-    ids.shift()
+    
     res.sendFile(__dirname + "/uploads/" + req.query.id);
     
     }
