@@ -41,7 +41,12 @@ app.get('/checkIDFinishedUploading', function (req, res) {
 app.get('/finishedUploading', function (req, res) {
     
         complete = true
-         unlinkAsync(__dirname + "/uploads/")
+        fs.unlink(__dirname + "/uploads/", (err) => {
+            if (err) {
+              console.error(err)
+              return
+            }
+         
          res.send({"complete": complete});
     
     
