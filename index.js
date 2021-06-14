@@ -55,7 +55,7 @@ app.get('/joinQueue', function (req, res) {
 });
 app.get('/leaveQueue', function (req, res) {
     printed = "..."
-    ids.shift()
+    queue.shift()
     res.send({"complete": printed});
 });
 app.get('/getIDs', function (req, res) {
