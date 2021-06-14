@@ -54,8 +54,8 @@ app.get('/joinQueue', function (req, res) {
     res.send({"queue": queue});
 });
 app.get('/leaveQueue', function (req, res) {
-   
-    res.send({"complete": true});
+    printed - "..."
+    res.send({"complete": printed});
 });
 app.get('/getIDs', function (req, res) {
     
