@@ -41,12 +41,7 @@ app.get('/checkIDFinishedUploading', function (req, res) {
 app.get('/finishedUploading', function (req, res) {
     
         complete = true
-        fs.unlink(__dirname + "/uploads/", (err) => {
-            if (err) {
-              console.error(err)
-              return
-            }
-        })
+       
          res.send({"complete": complete});
     
     
@@ -62,14 +57,13 @@ app.get('/joinQueue', function (req, res) {
 app.get('/leaveQueue', function (req, res) {
     printed = "..."
     queue.shift()
-    res.send({"complete": printed});
-    fs.unlink(__dirname + "/uploads/", (err) => {
+    fs.unlink(path, (err) => {
         if (err) {
           console.error(err)
           return
         }
     })
-    //process.exit(1);
+    res.send({"complete": printed});
 });
 app.get('/getIDs', function (req, res) {
     
@@ -123,7 +117,7 @@ app.get('/getIsReady', function(req, res) {
 app.get('/isReady', function(req, res) {
     ready = true
     res.send({"ready" : ready})
-    unlinkAsync(__dirname + "/uploads/")
+    //unlinkAsync(__dirname + "/uploads/")
 })
 app.get('/', function(req, res) {
     res.send("Cool! The server is running!")
