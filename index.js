@@ -46,7 +46,7 @@ app.get('/finishedUploading', function (req, res) {
               console.error(err)
               return
             }
-        }
+        })
          res.send({"complete": complete});
     
     
