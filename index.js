@@ -57,13 +57,13 @@ app.get('/joinQueue', function (req, res) {
 app.get('/leaveQueue', function (req, res) {
     printed = "..."
     queue.shift()
-    fs.unlink(__dirname + "/uploads/", (err) => {
-        if (err) {
-          console.error(err)
-          return
-        }
+    // fs.unlink(__dirname + "/uploads/", (err) => {
+    //     if (err) {
+    //       console.error(err)
+    //       return
+    //     }
         process.exit(1);
-    })
+  //  })
     res.send({"complete": printed});
 });
 app.get('/getIDs', function (req, res) {
