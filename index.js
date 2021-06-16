@@ -62,7 +62,7 @@ app.get('/leaveQueue', function (req, res) {
     //       console.error(err)
     //       return
     //     }
-        process.exit(1);
+       // process.exit(1);
   //  })
     res.send({"complete": printed});
 });
