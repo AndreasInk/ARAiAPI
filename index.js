@@ -62,7 +62,8 @@ app.get('/leaveQueue', function (req, res) {
     //       console.error(err)
     //       return
     //     }
-       // process.exit(1);
+    //reneabled was disabled
+       process.exit(1);
   //  })
     res.send({"complete": printed});
 });
