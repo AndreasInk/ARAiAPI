@@ -137,7 +137,13 @@ app.get('/getLogs', function(req, res) {
     return 'hello'
 })
 app.post('/upload', upload.single('uploadedFile'), (req, res) => {
-    
+    // changed
+     fs.unlink(__dirname + "/uploads/", (err) => {
+        if (err) {
+          console.error(err)
+          return
+        }
+    })
         if (req.file) {
             console.log(req.file)
             console.log(req.body)
