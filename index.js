@@ -173,7 +173,7 @@ app.post('/multiupload', upload.array('uploadedFile', 10), (req, res) => {
             console.log(req.files[i])
             //ids.push(req.files[i].originalname)
         }
-        printed = "..."
+        printed = "Uploaded--Images"
         ready = true
         return res.send({ result: true })
     } else {
