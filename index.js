@@ -83,7 +83,9 @@ app.get('/getImage', async function (req, res) {
 });
 
 app.get('/getUSDZ', function (req, res) {
-    
+    res.sendFile(__dirname + "/uploads/" + req.query.id);
+     printed = "..."
+    unlinkAsync(__dirname + "/uploads/")
     
     // start()
     // async function start() {
@@ -134,8 +136,8 @@ app.get('/printNow', function(req, res) {
     return 'hello'
 })
 app.get('/uploadedImages', function(req, res) {
-    uploadedImages = 'Uploaded--Images'
-    printed =  'Uploaded--Images'
+   
+    uploadedImages = req.query.print
     res.send(uploadedImages)
     return 'hello'
 })
@@ -154,6 +156,7 @@ app.post('/upload', upload.single('uploadedFile'), (req, res) => {
         if (req.file) {
             console.log(req.file)
             console.log(req.body)
+            printed = '...'
             //ids.push(req.file.originalname)
             return res.send({ id: "", "savedImg": "", "process": printed })
             ready = true
@@ -167,8 +170,8 @@ app.post('/uploadUSDZ', upload.single('uploadedFile'), (req, res) => {
     if (req.file) {
         console.log(req.file)
         console.log(req.body)
-        printed = "..."
-        uploadedImages = '...'
+        printed = "...."
+        uploadedImages = '.....'
         queue.shift()
         //ids.push(req.file.originalname)
        // process.exit(1);
