@@ -140,7 +140,7 @@ app.get('/uploadedImages', function(req, res) {
 })
 app.get('/getUploadedImages', function(req, res) {
     
-    res.send(uploadedImages)
+    res.send({ id: "", "process": printed })
    
     return 'hello'
 })
