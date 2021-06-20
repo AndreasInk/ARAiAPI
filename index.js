@@ -14,6 +14,7 @@ const storage = multer.diskStorage({
   }
 });
 var printed = "...";
+var uploadedImages = "...";
 var ids = [];
 var queue = [];
 const upload = multer({ storage: storage })
@@ -132,6 +133,17 @@ app.get('/printNow', function(req, res) {
     res.send(printed)
     return 'hello'
 })
+app.get('/uploadedImages', function(req, res) {
+    uploadedImages = 'Uploaded--Images'
+    res.send(uploadedImages)
+    return 'hello'
+})
+app.get('/getUploadedImages', function(req, res) {
+    
+    res.send(uploadedImages)
+   
+    return 'hello'
+})
 app.get('/getLogs', function(req, res) {
     res.send({ id: "", "process": printed })
     return 'hello'
@@ -155,6 +167,7 @@ app.post('/uploadUSDZ', upload.single('uploadedFile'), (req, res) => {
         console.log(req.file)
         console.log(req.body)
         printed = "..."
+        uploadedImages = '...'
         queue.shift()
         //ids.push(req.file.originalname)
        // process.exit(1);
