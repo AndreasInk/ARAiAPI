@@ -14,6 +14,7 @@ const storage = multer.diskStorage({
   }
 });
 var printed = "...";
+var printedMac = "...";
 var uploadedImages = "...";
 var ids = [];
 var queue = [];
@@ -135,6 +136,11 @@ app.get('/printNow', function(req, res) {
     res.send(printed)
     return 'hello'
 })
+app.get('/printNowMac', function(req, res) {
+    printedMac = req.query.print
+    res.send(printedMac)
+    return 'hello'
+})
 app.get('/uploadedImages', function(req, res) {
    
     uploadedImages = req.query.print
@@ -149,6 +155,10 @@ app.get('/getUploadedImages', function(req, res) {
 })
 app.get('/getLogs', function(req, res) {
     res.send({ id: "", "process": printed })
+    return 'hello'
+})
+app.get('/getLogsMac', function(req, res) {
+    res.send({ id: "", "process": printedMac })
     return 'hello'
 })
 app.post('/upload', upload.single('uploadedFile'), (req, res) => {
