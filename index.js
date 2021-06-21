@@ -22,7 +22,7 @@ const upload = multer({ storage: storage })
 var complete = false;
 var ready = "";
 var modelID = ""
-app.disable('etag');
+//app.disable('etag');
 app.get('/sendModelID', function (req, res) {
  modelID = req.query.modelID
     res.send({"modelID": req.query.modelID});
@@ -135,6 +135,9 @@ app.get('/getUploads', function(req, res) {
 app.get('/printNow', function(req, res) {
     printed = req.query.print
     res.send(printed)
+    // if (printed.includes('ID')) {
+        
+    // }
     return 'hello'
 })
 app.get('/printNowMac', function(req, res) {
