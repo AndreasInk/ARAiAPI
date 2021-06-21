@@ -60,14 +60,7 @@ app.get('/joinQueue', function (req, res) {
 app.get('/leaveQueue', function (req, res) {
     printed = "..."
     queue.shift()
-    // fs.unlink(__dirname + "/uploads/", (err) => {
-    //     if (err) {
-    //       console.error(err)
-    //       return
-    //     }
-    //reneabled was disabled
-      // process.exit(1);
-  // })
+  
     res.send({"complete": printed});
 });
 app.get('/getIDs', function (req, res) {
@@ -87,7 +80,14 @@ app.get('/getImage', async function (req, res) {
 app.get('/getUSDZ', function (req, res) {
     res.sendFile(__dirname + "/uploads/" + req.query.id);
      printed = "..."
-    unlinkAsync(__dirname + "/uploads/")
+     fs.unlink(__dirname + "/uploads/", (err) => {
+        if (err) {
+          console.error(err)
+          return
+        }
+    //reneabled was disabled
+      process.exit(1);
+  })
     
     // start()
     // async function start() {
