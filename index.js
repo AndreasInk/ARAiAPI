@@ -86,7 +86,7 @@ app.get('/getUSDZ', function (req, res) {
           return
         }
     //reneabled was disabled
-      process.exit(1);
+      //process.exit(1);
   })
     
     // start()
