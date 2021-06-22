@@ -94,14 +94,14 @@ app.get('/getUSDZ', function (req, res) {
           console.error(err)
           return
         }
-        if (queue.length == 0) {
-            sleep(1000, function() {
+        // if (queue.length == 0) {
+        //     sleep(1000, function() {
        
               
-                  process.exit(1);
+        //           process.exit(1);
               
-           })
-        }
+        //    })
+        // }
         // If it loops I'll do this...
         
     //reneabled was disabled
