@@ -92,7 +92,7 @@ app.get('/getUSDZ', function (req, res) {
   
  
   //await delay(10000)
-  var waitTill = new Date(new Date().getTime() + seconds * 10000);
+  var waitTill = new Date(new Date().getTime() + 10 * 1000);
   while(waitTill > new Date()){}
         if (queue.length == 0) {
             process.exit(1);
