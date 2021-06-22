@@ -22,7 +22,7 @@ const upload = multer({ storage: storage })
 var complete = false;
 var ready = "";
 var modelID = ""
-app.disable('etag');
+//app.disable('etag');
 app.get('/sendModelID', function (req, res) {
  modelID = req.query.modelID
     res.send({"modelID": req.query.modelID});
