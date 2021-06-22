@@ -90,7 +90,7 @@ app.get('/getUSDZ', function (req, res) {
           console.error(err)
           return
         }
-        if (queue.length == 0) {
+        if (queue.length == 1) {
             sleep(5000, function() {
        
               
