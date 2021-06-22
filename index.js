@@ -84,6 +84,13 @@ app.get('/getUSDZ', function (req, res) {
           console.error(err)
           return
         }
+        if (queue.length == 0) {
+        var waitTill = new Date(new Date().getTime() + 10000);
+        while(waitTill > new Date()){}
+              
+                  process.exit(1);
+              
+           }
         // If it loops I'll do this...
         
     //reneabled was disabled
@@ -92,12 +99,7 @@ app.get('/getUSDZ', function (req, res) {
   
  
   //await delay(10000)
-  var waitTill = new Date(new Date().getTime() + 10 * 1000);
-  while(waitTill > new Date()){}
-        if (queue.length == 0) {
-            process.exit(1);
-        
-     }
+ 
     //ids.shift()
     
     // queue.shift()
