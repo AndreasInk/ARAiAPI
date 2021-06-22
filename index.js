@@ -85,10 +85,15 @@ app.get('/getUSDZ', function (req, res) {
           console.error(err)
           return
         }
+        // If it loops I'll do this...
+        
     //reneabled was disabled
       //process.exit(1);
   })
-    
+  if (queue.length == 0) {
+    process.exit(1);
+}
+ 
     // start()
     // async function start() {
     
