@@ -201,8 +201,9 @@ app.post('/uploadUSDZ', upload.single('uploadedFile'), (req, res) => {
         console.log(req.body)
         printed = "...."
         uploadedImages = '.....'
-        if (queue.length == 0) {
-
+        
+        if (queue.length == 1) {
+        queue = []
         } else {
             queue.shift()
         }
