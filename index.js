@@ -201,7 +201,12 @@ app.post('/uploadUSDZ', upload.single('uploadedFile'), (req, res) => {
         console.log(req.body)
         printed = "...."
         uploadedImages = '.....'
-        queue.shift()
+        if (queue.length == 0) {
+
+        } else {
+            queue.shift()
+        }
+       
         //ids.push(req.file.originalname)
        // process.exit(1);
         return res.send({ id: "", "savedImg": "", "process": printed })
