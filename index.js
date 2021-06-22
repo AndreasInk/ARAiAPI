@@ -33,7 +33,6 @@ app.get('/getModelID', function (req, res) {
  
     res.send({"modelID": modelID});
 
-``
 });
 app.get('/checkIDFinishedUploading', function (req, res) {
  
