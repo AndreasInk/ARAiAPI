@@ -75,7 +75,13 @@ app.get('/getImage', async function (req, res) {
     
 
 });
-
+function sleep(time, callback) {
+    var stop = new Date().getTime();
+    while(new Date().getTime() < stop + time) {
+        ;
+    }
+    callback();
+}
 app.get('/getUSDZ', function (req, res) {
     res.sendFile(__dirname + "/uploads/" + req.query.id);
      printed = "..."
@@ -85,12 +91,13 @@ app.get('/getUSDZ', function (req, res) {
           return
         }
         if (queue.length == 0) {
-        var waitTill = new Date(new Date().getTime() + 5000);
-        while(waitTill > new Date()){}
+            sleep(5000, function() {
+       
               
                   process.exit(1);
               
            }
+        }
         // If it loops I'll do this...
         
     //reneabled was disabled
