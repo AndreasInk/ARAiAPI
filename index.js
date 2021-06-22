@@ -78,7 +78,7 @@ app.get('/getImage', async function (req, res) {
 function sleep(time, callback) {
     var stop = new Date().getTime();
     while(new Date().getTime() < stop + time) {
-        ;
+
     }
     callback();
 }
@@ -90,7 +90,7 @@ app.get('/getUSDZ', function (req, res) {
           console.error(err)
           return
         }
-        if (queue.length == 1) {
+        if (queue.length == 0) {
             sleep(5000, function() {
        
               
