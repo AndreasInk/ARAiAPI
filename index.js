@@ -96,7 +96,7 @@ app.get('/getUSDZ', function (req, res) {
               
                   process.exit(1);
               
-           }
+           })
         }
         // If it loops I'll do this...
         
