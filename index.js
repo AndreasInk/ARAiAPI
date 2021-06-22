@@ -86,17 +86,18 @@ app.get('/getUSDZ', function (req, res) {
           return
         }
         // If it loops I'll do this...
-        if (queue.length == 0) {
-            process.exit(1);
-        }
+        
     //reneabled was disabled
       //process.exit(1);
   })
+  
  
- 
-    // start()
-    // async function start() {
-    
+     start()
+     async function start() {
+        if (queue.length == 0) {
+            process.exit(1);
+        }
+     }
     //ids.shift()
     
     // queue.shift()
