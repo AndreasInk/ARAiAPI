@@ -69,9 +69,12 @@ app.get('/getIDs', function (req, res) {
 
     
 app.get('/getImage', async function (req, res) {
+    if (queue.length > 0) {
+
+    
      res.sendFile(__dirname + "/uploads/" + req.query.id);
      printed = "..."
-    
+    }
     
 
 });
@@ -197,12 +200,13 @@ app.post('/upload', upload.single('uploadedFile'), (req, res) => {
 app.post('/uploadUSDZ', upload.single('uploadedFile'), (req, res) => {
    
     if (req.file) {
+        if (queue.length > 0) {
         console.log(req.file)
         console.log(req.body)
         printed = "...."
         uploadedImages = '.....'
         queue.shift()
-       
+        }
        
         //ids.push(req.file.originalname)
        // process.exit(1);
