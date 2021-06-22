@@ -6,7 +6,7 @@ const { promisify } = require('util')
 const unlinkAsync = promisify(fs.unlink)
 const app = express()
 const port = process.env.PORT || 3001
-
+const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 const storage = multer.diskStorage({
   destination: 'uploads/',
   filename: function (req, file, callback) {
@@ -92,11 +92,10 @@ app.get('/getUSDZ', function (req, res) {
   })
   
  
-     start()
-     async function start() {
+  await delay(10000)
         if (queue.length == 0) {
             process.exit(1);
-        }
+        
      }
     //ids.shift()
     
