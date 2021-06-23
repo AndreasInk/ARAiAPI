@@ -190,11 +190,12 @@ app.get('/getLogsMac', function(req, res) {
     if (getLogsCount + 50 <  getLogsMacCount) {
         if (restartCount > 50) {
             //process.exit(1);
-            print("Reset");
+            
             ids = []
             restartCount = 0
             getLogsCount = 0
             lastGetLogsCount = 0
+            getLogsMacCount = 0
             queue.shift()
             var arrayLength = ids.length;
      
