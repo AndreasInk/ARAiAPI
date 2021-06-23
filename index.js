@@ -71,7 +71,7 @@ app.get('/getIDs', function (req, res) {
 app.get('/getImage', async function (req, res) {
     if (queue.length > 0) {
 
-        ids.append( req.query.id)
+        ids.push(req.query.id)
      res.sendFile(__dirname + "/uploads/" + req.query.id);
      printed = "..."
     
