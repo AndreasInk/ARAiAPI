@@ -187,7 +187,7 @@ app.get('/getLogs', function(req, res) {
 })
 app.get('/getLogsMac', function(req, res) {
     getLogsMacCount += 1
-    if (getLogsCount + 50 <  getLogsMacCount/5) {
+    if (getLogsCount + 10 <  getLogsMacCount/5) {
         if (restartCount > 20) {
             //process.exit(1);
             printedMac = "Reset"
