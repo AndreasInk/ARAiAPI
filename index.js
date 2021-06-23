@@ -186,7 +186,23 @@ getLogsCount += 1
 app.get('/getLogsMac', function(req, res) {
     if (getLogsCount ==  lastGetLogsCount) {
         if (restartCount > 5) {
-            process.exit(1);
+            //process.exit(1);
+            ids = []
+            restartCount = 0
+            getLogsCount = 0
+            lastGetLogsCount = 0
+            queue.shift()
+            var arrayLength = ids.length;
+     
+            for (var i = 0; i < arrayLength; i++) {
+                
+                fs.unlink(__dirname + "/uploads/" + ids[i], (err) => {
+                    if (err) {
+                      console.error(err)
+                      return
+                    }
+                 })
+                }
         }
         restartCount += 1
         
