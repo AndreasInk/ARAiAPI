@@ -23,6 +23,7 @@ var complete = false;
 var ready = "";
 var modelID = ""
 var getLogsCount = 0
+var getLogsMacCount = 0
 var lastGetLogsCount = 0
 var restartCount = 0
 //app.disable('etag');
@@ -178,13 +179,15 @@ app.get('/getUploadedImages', function(req, res) {
     return 'hello'
 })
 app.get('/getLogs', function(req, res) {
+    getLogsCount += 1
     res.send({ id: "", "process": printed })
     
-getLogsCount += 1
+
     return 'hello'
 })
 app.get('/getLogsMac', function(req, res) {
-    if (getLogsCount ==  lastGetLogsCount) {
+    getLogsMacCount += 1
+    if (getLogsCount + 10 <  getLogsMacCount) {
         if (restartCount > 50) {
             //process.exit(1);
             ids = []
