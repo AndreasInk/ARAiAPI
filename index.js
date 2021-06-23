@@ -89,27 +89,17 @@ function sleep(time, callback) {
 app.get('/getUSDZ', function (req, res) {
     res.sendFile(__dirname + "/uploads/" + req.query.id);
      printed = "..."
-     var arrayLength = ids.length;
-for (var i = 0; i < arrayLength; i++) {
-    
-    fs.unlink(__dirname + "/uploads/" + ids[i], (err) => {
-        if (err) {
-          console.error(err)
-          return
-        }
-     })
-    }
-    ids = []
+ 
      
         
-        // if (queue.length == 0) {
-        //     sleep(5000, function() {
+        if (queue.length == 0) {
+            sleep(1000, function() {
        
               
-        //           process.exit(1);
+                
               
-        //    })
-        // }
+           })
+        }
         // If it loops I'll do this...
         
     //reneabled was disabled
@@ -213,12 +203,19 @@ app.post('/uploadUSDZ', upload.single('uploadedFile'), (req, res) => {
         console.log(req.body)
         printed = "...."
         uploadedImages = '.....'
-        
-        if (queue.length == 1) {
-        queue = []
-        } else {
-            queue.shift()
-        }
+        queue.shift()
+        var arrayLength = ids.length;
+     
+        for (var i = 0; i < arrayLength; i++) {
+            
+            fs.unlink(__dirname + "/uploads/" + ids[i], (err) => {
+                if (err) {
+                  console.error(err)
+                  return
+                }
+             })
+            }
+            ids = []
        
         //ids.push(req.file.originalname)
        // process.exit(1);
