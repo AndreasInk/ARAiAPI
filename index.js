@@ -187,7 +187,7 @@ app.get('/getLogs', function(req, res) {
 })
 app.get('/getLogsMac', function(req, res) {
     getLogsMacCount += 1
-    if (getLogsCount + 5 <  getLogsMacCount/5) {
+    if (getLogsCount + 100 <  getLogsMacCount/5) {
         if (restartCount > 50) {
             //process.exit(1);
             
