@@ -185,7 +185,7 @@ getLogsCount += 1
 })
 app.get('/getLogsMac', function(req, res) {
     if (getLogsCount ==  lastGetLogsCount) {
-        if (restartCount > 5) {
+        if (restartCount > 50) {
             //process.exit(1);
             ids = []
             restartCount = 0
