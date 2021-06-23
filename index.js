@@ -22,6 +22,9 @@ const upload = multer({ storage: storage })
 var complete = false;
 var ready = "";
 var modelID = ""
+var getLogsCount = 0
+var lastGetLogsCount = 0
+var restartCount = 0
 //app.disable('etag');
 app.get('/sendModelID', function (req, res) {
  modelID = req.query.modelID
@@ -176,10 +179,20 @@ app.get('/getUploadedImages', function(req, res) {
 })
 app.get('/getLogs', function(req, res) {
     res.send({ id: "", "process": printed })
+    
+getLogsCount += 1
     return 'hello'
 })
 app.get('/getLogsMac', function(req, res) {
+    if (getLogsCount ==  lastGetLogsCount) {
+        if (restartCount > 5) {
+            process.exit(1);
+        }
+        restartCount += 1
+        
+    }
     res.send({ id: "", "process": printedMac })
+    lastGetLogsCount =  getLogsCount
     return 'hello'
 })
 app.post('/upload', upload.single('uploadedFile'), (req, res) => {
