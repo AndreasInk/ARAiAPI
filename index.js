@@ -71,7 +71,7 @@ app.get('/getIDs', function (req, res) {
 app.get('/getImage', async function (req, res) {
     if (queue.length > 0) {
 
-    
+        ids.append( req.query.id)
      res.sendFile(__dirname + "/uploads/" + req.query.id);
      printed = "..."
     
@@ -89,13 +89,21 @@ function sleep(time, callback) {
 app.get('/getUSDZ', function (req, res) {
     res.sendFile(__dirname + "/uploads/" + req.query.id);
      printed = "..."
-     fs.unlink(__dirname + "/uploads/", (err) => {
+     var arrayLength = ids.length;
+for (var i = 0; i < arrayLength; i++) {
+    
+    fs.unlink(__dirname + "/uploads/" + ids[i], (err) => {
         if (err) {
           console.error(err)
           return
         }
+     })
+    }
+    ids = []
+     
+        
         // if (queue.length == 0) {
-        //     sleep(1000, function() {
+        //     sleep(5000, function() {
        
               
         //           process.exit(1);
@@ -106,7 +114,7 @@ app.get('/getUSDZ', function (req, res) {
         
     //reneabled was disabled
       //process.exit(1);
-  })
+
   
  
   //await delay(10000)
