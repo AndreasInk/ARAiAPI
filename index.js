@@ -238,6 +238,10 @@ app.post('/uploadUSDZ', upload.single('uploadedFile'), (req, res) => {
         printed = "...."
         uploadedImages = '.....'
         queue.shift()
+        restartCount = 0
+            getLogsCount = 0
+            lastGetLogsCount = 0
+            getLogsMacCount = 0
         var arrayLength = ids.length;
      
         for (var i = 0; i < arrayLength; i++) {
